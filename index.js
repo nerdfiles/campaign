@@ -3,7 +3,6 @@
  */
 
 var Curl = require('node-libcurl').Curl;
-var querystring = require( 'querystring' );
 var fs = require('fs');
 var _HTTPHEADER = JSON.parse(fs.readFileSync('./HTTPHEADER', 'utf-8'));
 
@@ -34,8 +33,6 @@ curl.setOpt(Curl.option.URL, url);
 curl.setOpt(Curl.option.POSTFIELDS, data);
 curl.setOpt(Curl.option.HTTPHEADER, _HTTPHEADER.HTTPHEADER);
 curl.setOpt(Curl.option.VERBOSE, true);
-
-console.log(querystring.stringify(data));
 
 curl.perform();
 
