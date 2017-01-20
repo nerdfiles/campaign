@@ -35,6 +35,14 @@ With hope, you're good to go in a few minutes.
 
     $ npm run mail
 
+Be sure to check out [Content](https://github.com/nerdfiles/campaign#content) before sending.
+
+### Create `FROM` file
+
+    sandbox@sparkpostbox.com
+
+Should specify your domain listed on [sparkpost.com](https://sparkpost.com) when done testing.
+
 ### Create `HTTPHEADER` file
 
     {
