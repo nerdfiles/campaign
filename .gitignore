@@ -5,3 +5,4 @@ starter/
 *.swp
 npm-debug.log
 dist
+.DS_Store

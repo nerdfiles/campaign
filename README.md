@@ -41,7 +41,7 @@ Be sure to check out [Content](https://github.com/nerdfiles/campaign#content) be
 
     sandbox@sparkpostbox.com
 
-Should specify your domain listed on [sparkpost.com](https://sparkpost.com) when done testing.
+Should specify your domain listed on [sparkpost.com](https://sparkpost.com) when done testing. (No file extension is necessary. You can use TextEdit.)
 
 ### Create `HTTPHEADER` file
 
@@ -52,6 +52,8 @@ Should specify your domain listed on [sparkpost.com](https://sparkpost.com) when
         "Content-Type: application/json"
       ]
     }
+
+(No file extension is necessary. You can use TextEdit.)
 
 ### Create `grouped.deduped.txt` file
 
