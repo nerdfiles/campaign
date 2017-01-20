@@ -2,8 +2,11 @@
  * @fileOverview ./campaign/index.js
  */
 
-var Curl = require('node-libcurl').Curl;
-var fs = require('fs');
+import C      from 'node-libcurl';
+import fs     from 'fs';
+import colors from 'colors';
+
+var Curl = C.Curl;
 
 module.exports = function (testMode) {
   var recipientList, htmlEmail, textEmail, textSubject, from;
@@ -62,9 +65,9 @@ module.exports = function (testMode) {
   curl.on('end', function (statusCode, body) {
     try {
     var _body = JSON.parse(body);
-    console.log("ID: " + _body.results.id);
-    console.log("Bounces: " + _body.results.total_rejected_recipients);
-    console.log("Successes: " + _body.results.total_accepted_recipients);
+    console.log("ID: " + _body.results.id.toString().rainbow);
+    console.log("Bounces: " + _body.results.total_rejected_recipients.toString().rainbow);
+    console.log("Successes: " + _body.results.total_accepted_recipients.toString().rainbow);
     } catch (e) {
       console.log(e);
     }
