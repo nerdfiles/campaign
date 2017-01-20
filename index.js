@@ -9,13 +9,15 @@ module.exports = function (testMode) {
   var recipientList, htmlEmail, textEmail, textSubject, from;
 
   var _HTTPHEADER = JSON.parse(fs.readFileSync('./HTTPHEADER', 'utf-8'));
-  var testRecipientsList = [{ "address": "nerdfiles@gmail.com" }];
+  var testRecipientsList = fs.readFileSync('./TEST_RECIPIENT', 'utf-8');
+  var _testRecipientsList = testRecipientsList.trim();
+  var __testRecipient = [{ "address": _testRecipientsList }];
   var loadedRecipientsList = fs.readFileSync('./grouped.deduped.txt', 'utf-8');
   var _recipientList = loadedRecipientsList.split('\n');
 
   if (testMode) {
-    console.log('Loading test e-mails list!');
-    recipientList = testRecipientsList;
+    console.log('Loading test e-mail recipient!');
+    recipientList = __testRecipient;
   } else {
     console.log('Loading production e-mails list!');
     for(var i = 0; i < _recipientList.length; ++i) {
