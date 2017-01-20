@@ -64,10 +64,10 @@ module.exports = function (testMode) {
 
   curl.on('end', function (statusCode, body) {
     try {
-    var _body = JSON.parse(body);
-    console.log("ID: " + _body.results.id.toString().rainbow);
-    console.log("Bounces: " + _body.results.total_rejected_recipients.toString().rainbow);
-    console.log("Successes: " + _body.results.total_accepted_recipients.toString().rainbow);
+      var _body = JSON.parse(body);
+      console.log("ID: " + _body.results.id.toString().rainbow);
+      console.log("Bounces: " + _body.results.total_rejected_recipients.toString().rainbow);
+      console.log("Successes: " + _body.results.total_accepted_recipients.toString().rainbow);
     } catch (e) {
       console.log(e);
     }
