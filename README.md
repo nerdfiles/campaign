@@ -1,5 +1,7 @@
 # Campaign with SparkPost
 
+Greatly depends on [ZURB Foundation for Emails](https://github.com/zurb/foundation-emails-template), but without the AWS stuff. In progress.
+
 ## Preparation
 
 Check if you have `git`. Open _Terminal_:
