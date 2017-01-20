@@ -1,6 +1,6 @@
 # Campaign with SparkPost
 
-Greatly depends on [ZURB Foundation for Emails](https://github.com/zurb/foundation-emails-template), but without the AWS stuff. In progress.
+Greatly depends on [ZURB Foundation for Emails](https://github.com/zurb/foundation-emails-template), but without the AWS stuff. In progress. There's gotta be some smart-ass reason to use `node-libcurl` over `requests`, right? Check out [node-sparkpost](https://github.com/SparkPost/node-sparkpost) for tested code.
 
 ## Preparation
 
