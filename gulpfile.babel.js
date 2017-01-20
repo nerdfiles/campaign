@@ -113,8 +113,9 @@ function inliner (css) {
   return pipe();
 }
 
-function mail () {
+function mail (done) {
   mailer(TESTING);
+  done();
 }
 
 function zip () {

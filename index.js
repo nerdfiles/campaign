@@ -53,12 +53,19 @@ module.exports = function (testMode) {
   curl.setOpt(Curl.option.URL, url);
   curl.setOpt(Curl.option.POSTFIELDS, data);
   curl.setOpt(Curl.option.HTTPHEADER, _HTTPHEADER.HTTPHEADER);
-  curl.setOpt(Curl.option.VERBOSE, true);
+  curl.setOpt(Curl.option.VERBOSE, false);
 
   curl.perform();
 
   curl.on('end', function (statusCode, body) {
-    console.log(body);
+    try {
+    var _body = JSON.parse(body);
+    console.log("ID: " + _body.results.id);
+    console.log("Bounces: " + _body.results.total_rejected_recipients);
+    console.log("Successes: " + _body.results.total_accepted_recipients);
+    } catch (e) {
+      console.log(e);
+    }
     this.close();
   });
 
