@@ -1,3 +1,9 @@
+/* @fileOverview ./gulfile.babel.js
+ * @description
+ * Gulp tasks for building, compiling/compressing, and mailing templated e-mail
+ * campaigns.
+ */
+
 import gulp     from 'gulp';
 import plugins  from 'gulp-load-plugins';
 import browser  from 'browser-sync';
@@ -10,7 +16,7 @@ import fs       from 'fs';
 import siphon   from 'siphon-media-query';
 import path     from 'path';
 import merge    from 'merge-stream';
-import mailer   from './index';
+import mailer   from './src/mailer';
 
 const $ = plugins();
 

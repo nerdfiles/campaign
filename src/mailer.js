@@ -1,5 +1,9 @@
-/*
- * @fileOverview ./campaign/index.js
+/* @fileOverview ./src/mailer.js
+ * @description
+ * Mailer that redundant (and untested) Curl-based code for interacting with
+ * SparkPost's REST API.
+ * @TODO
+ * 1. Idea: Proof-of-Existence on output and ID published to Bitcoin blockchain. Perform momentum level differential check to automate re-sending templates based on Bitcoin price given tracking feedback analytics. If the price drops below a certain threshold, re-send templated e-mails of certain categories, etc.
  */
 
 import C      from 'node-libcurl';

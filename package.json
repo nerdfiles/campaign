@@ -8,7 +8,9 @@
     "build": "gulp --production",
     "zip": "gulp zip --production",
     "mail": "gulp mail --production",
-    "mail/testing": "gulp mail --production --testing"
+    "mail/testing": "gulp mail --production --testing",
+    "analysis/src": "plato -r -d report -t 'Campaign' -x .json gulpfile.babel.js src/*.js",
+    "analysis/src/report": "cd report/ && python -m SimpleHTTPServer"
   },
   "author": "nerdfiles <nerdfiles@gmail.com>",
   "license": "WTFPL",

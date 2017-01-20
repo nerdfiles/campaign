@@ -41,6 +41,19 @@ With hope, you're good to go in a few minutes.
 
     $ npm run mail/testing
 
+## Code Analysis
+
+    $ npm run analysis/src
+    $ npm run analysis/src/report
+
+### Summary for 2017-01-20
+
+    Total/Average Lines
+    246 / 123
+
+    Average Maintainability
+    65.18
+
 Be sure to check out [Content](https://github.com/nerdfiles/campaign#content) before sending.
 
 #### Update `TEST_RECIPIENT` file
