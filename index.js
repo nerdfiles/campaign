@@ -9,13 +9,19 @@ var _HTTPHEADER = JSON.parse(fs.readFileSync('./HTTPHEADER', 'utf-8'));
 var testRecipientsList = [{ "address": "nerdfiles@gmail.com" }];
 var loadedRecipientsList = fs.readFileSync('./grouped.deduped.txt', 'utf-8');
 // console.log(loadedRecipientsList);
+var htmlEmail, textEmail, textSubject;
+
+textEmail = fs.readFileSync('./distText/basic.txt');
+textSubject = fs.readFileSync('./subjectText/basic.txt');
+htmlEmail = fs.readFileSync('./dist/basic.txt');
 
 var initData = function () {
   var data = {
     "content": {
       "from"    : "sandbox@sparkpostbox.com",
-      "subject" : "Test Subject Line",
-      "text"    : "Test Body"
+      "subject" : textSubject,
+      "text"    : textEmail,
+      "html"    : htmlEmail
     },
     "recipients": testRecipientsList
   };

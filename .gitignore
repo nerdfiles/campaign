@@ -4,3 +4,4 @@ HTTPHEADER
 starter/
 *.swp
 npm-debug.log
+dist
