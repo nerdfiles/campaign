@@ -41,6 +41,10 @@ With hope, you're good to go in a few minutes.
 
 Be sure to check out [Content](https://github.com/nerdfiles/campaign#content) before sending.
 
+#### Update `TEST_RECIPIENT` file
+
+    email@domain.com
+
 ### Create `FROM` file
 
     sandbox@sparkpostbox.com
