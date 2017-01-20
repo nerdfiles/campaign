@@ -120,7 +120,7 @@ function zip () {
 
   function getHtmlFiles (dir) {
     return fs.readdirSync(dir)
-      .filter(function(file) {
+      .filter(function (file) {
         var fileExt = path.join(dir, file);
         var isHtml = path.extname(fileExt) == ext;
         return fs.statSync(fileExt).isFile() && isHtml;
@@ -129,7 +129,7 @@ function zip () {
 
   var htmlFiles = getHtmlFiles(dist);
 
-  var moveTasks = htmlFiles.map(function(file){
+  var moveTasks = htmlFiles.map(function (file){
     var sourcePath = path.join(dist, file);
     var fileName = path.basename(sourcePath, ext);
 
