@@ -1,4 +1,5 @@
 grouped.deduped.txt
 node_modules/
 HTTPHEADER
+starter/
 *.swp
