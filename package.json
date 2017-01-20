@@ -1,7 +1,7 @@
 {
   "name": "campaign",
   "version": "1.0.0",
-  "description": "",
+  "description": "Use ZURB Foundation for Emails with SparkPost.",
   "main": "gulpfile.babel.js",
   "scripts": {
     "start": "gulp",
