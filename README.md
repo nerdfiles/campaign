@@ -43,8 +43,15 @@ With hope, you're good to go in a few minutes.
 
 ## Code Analysis
 
+Run the complexity analyzer.
+
     $ npm run analysis/src
+
+Then start the HTTP Server.
+
     $ npm run analysis/src/report
+
+Now open [127.0.0.1:8000](http://127.0.0.1:8000/).
 
 ### Summary for 2017-01-20
 
