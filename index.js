@@ -4,49 +4,64 @@
 
 var Curl = require('node-libcurl').Curl;
 var fs = require('fs');
-var _HTTPHEADER = JSON.parse(fs.readFileSync('./HTTPHEADER', 'utf-8'));
 
-var testRecipientsList = [{ "address": "nerdfiles@gmail.com" }];
-var loadedRecipientsList = fs.readFileSync('./grouped.deduped.txt', 'utf-8');
-// console.log(loadedRecipientsList);
-var htmlEmail, textEmail, textSubject, from;
+module.exports = function (testMode) {
+  var recipientList, htmlEmail, textEmail, textSubject, from;
 
-textEmail = fs.readFileSync('./distText/basic.txt');
-textSubject = fs.readFileSync('./subjectText/basic.txt');
-htmlEmail = fs.readFileSync('./dist/basic.html');
-from = fs.readFileSync('./FROM');
+  var _HTTPHEADER = JSON.parse(fs.readFileSync('./HTTPHEADER', 'utf-8'));
+  var testRecipientsList = [{ "address": "nerdfiles@gmail.com" }];
+  var loadedRecipientsList = fs.readFileSync('./grouped.deduped.txt', 'utf-8');
+  var _recipientList = loadedRecipientsList.split('\n');
 
-var initData = function () {
-  var data = {
-    "content": {
-      "from"    : from,
-      "subject" : textSubject,
-      "text"    : textEmail,
-      "html"    : htmlEmail
-    },
-    "recipients": testRecipientsList
+  if (testMode) {
+    console.log('Loading test e-mails list!');
+    recipientList = testRecipientsList;
+  } else {
+    console.log('Loading production e-mails list!');
+    for(var i = 0; i < _recipientList.length; ++i) {
+      recipientList.push({
+        "address": _recipientList[i]
+      });
+    }
+  }
+
+  textEmail = fs.readFileSync('./distText/basic.txt', 'utf-8');
+  textSubject = fs.readFileSync('./subjectText/basic.txt', 'utf-8');
+  htmlEmail = fs.readFileSync('./dist/basic.html', 'utf-8');
+  from = fs.readFileSync('./FROM', 'utf-8');
+
+  var initData = function () {
+    var data = {
+      "content": {
+        "from"    : from.trim(),
+        "subject" : textSubject.trim(),
+        "text"    : textEmail,
+        "html"    : htmlEmail
+      },
+      "recipients": recipientList
+    };
+    return data;
   };
-  return data;
+
+
+  var curl = new Curl();
+  var url  = 'https://api.sparkpost.com/api/v1/transmissions';
+  var data = initData();
+
+  data = JSON.stringify(data);
+
+  curl.setOpt(Curl.option.URL, url);
+  curl.setOpt(Curl.option.POSTFIELDS, data);
+  curl.setOpt(Curl.option.HTTPHEADER, _HTTPHEADER.HTTPHEADER);
+  curl.setOpt(Curl.option.VERBOSE, true);
+
+  curl.perform();
+
+  curl.on('end', function (statusCode, body) {
+    console.log(body);
+    this.close();
+  });
+
+  curl.on('error', curl.close.bind(curl));
+
 };
-
-
-var curl = new Curl();
-var url  = 'https://api.sparkpost.com/api/v1/transmissions';
-var data = initData();
-
-data = JSON.stringify(data);
-
-curl.setOpt(Curl.option.URL, url);
-curl.setOpt(Curl.option.POSTFIELDS, data);
-curl.setOpt(Curl.option.HTTPHEADER, _HTTPHEADER.HTTPHEADER);
-curl.setOpt(Curl.option.VERBOSE, true);
-
-curl.perform();
-
-curl.on('end', function (statusCode, body) {
-  console.log(body);
-  this.close();
-});
-
-curl.on('error', curl.close.bind(curl));
-

@@ -12,10 +12,12 @@ import path     from 'path';
 import merge    from 'merge-stream';
 import beep     from 'beepbeep';
 import colors   from 'colors';
+import mailer   from './index';
 
 const $ = plugins();
 
 const PRODUCTION = !!(yargs.argv.production);
+const TESTING = !!(yargs.argv.testing);
 
 gulp.task('build',
   gulp.series(clean, pages, sass, images, inline));
@@ -112,6 +114,7 @@ function inliner (css) {
 }
 
 function mail () {
+  mailer(TESTING);
 }
 
 function zip () {

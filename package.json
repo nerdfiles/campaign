@@ -7,7 +7,8 @@
     "start": "gulp",
     "build": "gulp --production",
     "zip": "gulp zip --production",
-    "mail": "node index.js"
+    "mail": "gulp mail --production",
+    "mail/testing": "gulp mail --production --testing"
   },
   "author": "nerdfiles <nerdfiles@gmail.com>",
   "license": "WTFPL",

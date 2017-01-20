@@ -35,6 +35,10 @@ With hope, you're good to go in a few minutes.
 
     $ npm run mail
 
+### Testing
+
+    $ npm run mail/testing
+
 Be sure to check out [Content](https://github.com/nerdfiles/campaign#content) before sending.
 
 ### Create `FROM` file
