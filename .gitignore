@@ -3,3 +3,4 @@ node_modules/
 HTTPHEADER
 starter/
 *.swp
+npm-debug.log

@@ -10,7 +10,7 @@
     "mail": "gulp mail --production"
   },
   "author": "nerdfiles <nerdfiles@gmail.com>",
-  "license": "MIT",
+  "license": "WTFPL",
   "dependencies": {
     "foundation-emails": "^2.2.1",
     "node-libcurl": "^1.0.0"

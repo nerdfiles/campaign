@@ -23,6 +23,9 @@ gulp.task('build',
 gulp.task('default',
   gulp.series('build', server, watch));
 
+gulp.task('zip',
+  gulp.series('build', zip));
+
 gulp.task('mail',
   gulp.series('build', mail));
 
