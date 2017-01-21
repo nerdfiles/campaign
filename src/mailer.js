@@ -27,7 +27,7 @@ module.exports = function (testMode) {
     recipientList = __testRecipient;
   } else {
     console.log('Loading production e-mails list!');
-    for(var i = 0; i < _recipientList.length; ++i) {
+    for(let i = 0; i < _recipientList.length; ++i) {
       recipientList.push({
         "address": _recipientList[i]
       });
